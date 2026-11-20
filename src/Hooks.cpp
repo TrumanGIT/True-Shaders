@@ -14,6 +14,7 @@
 #include "Features/HDRDisplay.h"
 #include "Features/InteriorSun.h"
 #include "Features/LightLimitFix.h"
+#include "Features/ReverseZ.h"
 #include "Features/ScreenshotFeature.h"
 #include "Features/Skin.h"
 #include "Features/SkySync.h"
@@ -474,6 +475,7 @@ struct BSShaderRenderTargets_Create
 		Util::SetGameSettingValue<std::int32_t>("iNumFocusShadow:Display", iNumFocusShadow, 0);
 		func();
 		globals::ReInit();
+		globals::features::reverseZ.SetupDepthTargets();
 		globals::state->Setup();
 	}
 	static inline REL::Relocation<decltype(thunk)> func;

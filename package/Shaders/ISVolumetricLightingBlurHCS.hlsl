@@ -1,3 +1,5 @@
+#include "Common/FrameBuffer.hlsli"
+
 Texture2D<float> InVLTexture : register(t0);
 Texture2D<float> DepthTexture : register(t1);
 SamplerState LinearSampler : register(s0);
@@ -36,7 +38,7 @@ groupshared float depth[TG_DIM];
 	int2 pix = min(int2(x, y), screenSizeMin1.xy);
 	float vlValue = InVLTexture[pix];
 	vl[idx] = vlValue;
-	float depthValue = DepthTexture[pix];
+	float depthValue = FrameBuffer::ToStandardDepth(DepthTexture[pix]);
 	depth[idx] = depthValue;
 
 	GroupMemoryBarrierWithGroupSync();

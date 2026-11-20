@@ -38,6 +38,7 @@
 #include "Features/VolumetricShadows.h"
 #include "Features/WaterEffects.h"
 #include "Features/CSEditor.h"
+#include "Features/ReverseZ.h"
 #include "Features/WetnessEffects.h"
 #include "Menu.h"
 #include "SceneSettingsManager.h"
@@ -87,6 +88,7 @@ namespace globals
 		PerformanceOverlay performanceOverlay{};
 		WetnessEffects wetnessEffects{};
 		ExtendedTranslucency extendedTranslucency{};
+		ReverseZ reverseZ{};
 		Upscaling upscaling{};
 		HDRDisplay hdrDisplay{};
 		Effects11 effects11{};
@@ -256,6 +258,7 @@ namespace globals
 	{
 		using namespace game;
 		auto frameBuffer = (FrameBuffer*)mappedFrameBuffer->pData;
+		features::reverseZ.FixupMappedFrameBuffer(*frameBuffer);
 		frameBufferCached.data = *frameBuffer;
 		mappedFrameBuffer = nullptr;
 	}
