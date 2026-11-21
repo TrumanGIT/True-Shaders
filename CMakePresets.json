@@ -44,7 +44,7 @@
                 "CMAKE_CXX_FLAGS": "/EHsc /MP $penv{CXXFLAGS}",
                 "CMAKE_CXX_FLAGS_RELEASE": "/O2 /Ob3 /DNDEBUG"
             },
-            "generator": "Visual Studio 18 2026",
+            "generator": "Visual Studio 17 2022",
             "vendor": {
                 "microsoft.com/VisualStudioSettings/CMake/1.0": {
                     "intelliSenseMode": "windows-msvc-x64",

@@ -626,6 +626,8 @@ PS_OUTPUT main(PS_INPUT input)
 
 	float4 baseColor = TexBaseSampler.SampleBias(SampBaseSampler, input.TexCoord.xy, SharedData::MipBias);
 
+	baseColor.xyz *= 0.35;
+
 #		if defined(RENDER_DEPTH)
 	float diffuseAlpha = input.Color.w * baseColor.w;
 	if ((diffuseAlpha - AlphaTestRefRS) < 0) {
